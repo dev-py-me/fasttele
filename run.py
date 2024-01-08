@@ -43,6 +43,9 @@ async def download_or_upload(event):
     if event.document:
         type_of = "download"
         msg = await event.reply("downloading started")
+        file1 = event.file.name
+        if file1 == ""
+            file1 == "None.mp4"
         with open(event.file.name, "wb") as out:
             await download_file(event.client, event.document, out, progress_callback=progress_bar)
         await msg.edit("Finished downloading")
