@@ -40,19 +40,24 @@ async def download_or_upload(event):
         if timer.can_send():
             await msg.edit("{} {}%".format(type_of, current * 100 / total))
 
-    if event.document:
+
+    if event.video:
+        type_of = "download"
+        msg = await event.reply("downloading started")
+        #file1 = event.file.name
+       ### with open(file1, "wb") as out:
+       ###    await download_file(event.client, event.document, out, progress_callback=progress_bar)
+        await download_file(event.client, event.video)
+        await msg.edit("Finished downloading")
+    '''if event.document:
         type_of = "download"
         msg = await event.reply("downloading started")
         file1 = event.file.name
-        if file1 == "":
-            file1 == "None.mp4"
-        else:
-            file1 == event.file.name
        ### with open(file1, "wb") as out:
        ###    await download_file(event.client, event.document, out, progress_callback=progress_bar)
         await download_file(event.client, event.document,file1)
         await msg.edit("Finished downloading")
-
+''''
     else:
         type_of = "upload"
         msg = await event.reply("uploading started")
