@@ -50,7 +50,7 @@ async def download_or_upload(event):
             filename = "video.mp4"
         
         with open(filename, "wb") as out:
-            await download_media(event.client, event.document, out, progress_callback=progress_bar)
+            await download_file(event.client, event.document, out, progress_callback=progress_bar)
         await msg.edit("Finished downloading")
 
     else:        
