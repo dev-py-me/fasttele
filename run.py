@@ -6,9 +6,12 @@ from telethon.tl import types
 
 from FastTelethon import download_file, upload_file
 
-api_id: int = 
-api_hash: str = ""
-token = ""
+api_id: int  = 7712824
+#api_hash = get_env('TG_API_HASH', 'Enter your API hash: ')
+api_hash: str = '2d3673e18b462f8032c4eea2f50b9f52'
+#bot_token = get_env('TG_BOT_TOKEN', 'Enter your Telegram BOT token: ')
+token = '1832176378:AAGhfQbgbTOo6id__4-OFDKz-PpmBJ34SS8'
+
 client = TelegramClient("bot", api_id, api_hash)
 
 client.start(bot_token=token)
