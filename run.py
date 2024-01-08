@@ -41,7 +41,7 @@ async def download_or_upload(event):
             await msg.edit("{} {}%".format(type_of, current * 100 / total))
 
 
-    if event.video:
+    if event.document:
         type_of = "download"
         msg = await event.reply("downloading started")
         #file1 = event.file.name
