@@ -1,5 +1,8 @@
 import time
 import os
+import datetime
+
+x = datetime.datetime.now()
 
 from telethon import events, utils
 from telethon.sync import TelegramClient
@@ -49,7 +52,7 @@ async def download_or_upload(event):
         filename = event.file.name
         
         if not filename:
-            filename = "video.mp4"
+            filename = x.strftime("Video_%d_%m_%Y_%H_%I_%S.mp4")
         
         with open(filename, "wb") as out:
             await download_file(event.client, event.document, out, progress_callback=progress_bar)
