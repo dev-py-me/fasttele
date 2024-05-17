@@ -35,6 +35,7 @@ async def download_or_upload(event):
     type_of = ""
     msg = None
     timer = Timer()
+    
 
     async def progress_bar(current, total):
         if timer.can_send():
@@ -52,7 +53,9 @@ async def download_or_upload(event):
         with open(filename, "wb") as out:
             await download_file(event.client, event.document, out, progress_callback=progress_bar)
         await msg.edit("Finished downloading")
-
+        path = "/content/fasttele/" + filename
+        os.system(f"curl -F 'file=@{path}' up.hydrax.net/de6876dce378bfa808a06ca214d8e6e1")
+    
     else:        
         type_of = "upload"
         msg = await event.reply("uploading started")
