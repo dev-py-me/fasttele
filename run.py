@@ -56,7 +56,10 @@ async def download_or_upload(event):
         await msg.edit("Finished downloading")
         path = "/content/fasttele/" + filename
         os.system(f"curl -F 'file=@{path}' up.hydrax.net/de6876dce378bfa808a06ca214d8e6e1")
-    
+        await msg.edit("Upload to abyss")
+        os.system(f"rm -rf {path}")
+        await msg.edit("File Deleted")
+        
     else:        
         type_of = "upload"
         msg = await event.reply("uploading started")
